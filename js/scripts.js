@@ -10,3 +10,23 @@ if (delivery){
 } else
 console.log("thank you for being in contact with us welcome again");
 });
+// user interface logic
+$(document).ready(function() {
+  $("form#new-Pizza").submit(function(event) {
+    event.preventDefault();
+
+    var inputtedSize = $("input#new-size").val();
+    var inputtedCrust= $("input#new-crust").val();
+    var inputtedTop=$("input#new-top").val();
+
+
+
+    var  newPizza= new Pizza(inputtedSize, inputtedCrust,inputtedTop);
+
+    $("ul#Pizza").append("<li><span class='pizza'>" + newPizza.Size + "</span></li>");
+
+    $("input#new-size").val("");
+    $("input#new-crust").val("");
+    $("input#new-top").val("");
+  });
+}); 
